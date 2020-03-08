@@ -1,0 +1,172 @@
+{
+    "ERR_GENERAL" : {
+        "header" : {
+            "code" : 400
+        },
+        "body" : {
+            "code" : "0",
+            "message" : "Your payload data is invalid",
+            "data" : {}
+        }
+    },
+    "ERR_AUTH_GENERAL" : {
+        "header" : {
+            "code" : 401
+        },
+        "body" : {
+            "code" : "AUTH-02-001",
+            "message" : "General Authorization fail",
+            "data" : {}
+        }
+    },
+    "ERR_AUTH_APPLICATION_TYPE" : {
+        "header" : {
+            "code" : 401
+        },
+        "body" : {
+            "code" : "AUTH-02-002",
+            "message" : "Authorization fail, please check your Content-Type",
+            "data" : {}
+        }
+    },
+    "ERR_AUTH_ORIGIN" : {
+        "header" : {
+            "code" : 401
+        },
+        "body" : {
+            "code" : "AUTH-02-003",
+            "message" : "Authorization fail, can't identify Origin",
+            "data" : {}
+        }
+    },
+    "ERR_AUTH_CLIENTID" : {
+        "header" : {
+            "code" : 401
+        },
+        "body" : {
+            "code" : "AUTH-02-004",
+            "message" : "Authorization fail, you are not allowed to access this API",
+            "data" : {}
+        }
+    },
+    "ERR_AUTH_APIKEY" : {
+        "header" : {
+            "code" : 401
+        },
+        "body" : {
+            "code" : "AUTH-02-005",
+            "message" : "Authorization fail, you use wrong key, please check your key again",
+            "data" : {}
+        }
+    },
+    "ERR_AUTH_AUTH" : {
+        "header" : {
+            "code" : 401
+        },
+        "body" : {
+            "code" : "AUTH-02-006",
+            "message" : "Authorization fail, please make make sure your Token correct",
+            "data" : {}
+        }
+    },
+    "ERR_AUTH_TIME" : {
+        "header" : {
+            "code" : 401
+        },
+        "body" : {
+            "code" : "AUTH-02-007",
+            "message" : "Authorization fail, Not allowed timestamp",
+            "data" : {}
+        }
+    },
+    "SUC_200" : {
+        "header" : {
+            "code" : 200
+        },
+        "body" : {
+            "code" : "SGP-01-001",
+            "message" : "Success, Origin Response : "
+        }
+    },
+    "SUC_201" : {
+        "header" : {
+            "code" : 201
+        },
+        "body" : {
+            "code" : "SGP-01-002",
+            "message" : "Success Add Or Modify Data, Origin Response : "
+        }
+    },
+    "SUC_202" : {
+        "header" : {
+            "code" : 202
+        },
+        "body" : {
+            "code" : "SGP-01-003",
+            "message" : "Success Recive Your Data, Your Request Will be Processing, Origin Response : "
+        }
+    },
+    "ERR_400" : {
+        "header" : {
+            "code" : 400
+        },
+        "body" : {
+            "code" : "ERP-01-001",
+            "message" : "Error, The server cannot or will not process the request, Origin Response : "
+        }
+    },
+    "ERR_403" : {
+        "header" : {
+            "code" : 403
+        },
+        "body" : {
+            "code" : "ERP-01-002",
+            "message" : "Error, Server is refusing action, Origin Response : "
+        }
+    },
+    "ERR_412" : {
+        "header" : {
+            "code" : 412
+        },
+        "body" : {
+            "code" : "ERP-01-003",
+            "message" : "Error, This payload data no longer available or not available to process, Origin Response : "
+        }
+    },
+    "ERR_401" : {
+        "header" : {
+            "code" : 401
+        },
+        "body" : {
+            "code" : "ERP-01-004",
+            "message" : "Error, You are Unautorize, Origin Response : "
+        }
+    },
+    "ERR_404" : {
+        "header" : {
+            "code" : 404
+        },
+        "body" : {
+            "code" : "ERP-01-005",
+            "message" : "Error, Request Not Found, Origin Response : "
+        }
+    },
+    "ERR_404_1" : {
+        "header" : {
+            "code" : 404
+        },
+        "body" : {
+            "code" : "ERP-01-006",
+            "message" : "Error, Order_id exist but not have prescription image. please upload first."
+        }
+    },
+    "ERR_408" : {
+        "header" : {
+            "code" : 408
+        },
+        "body" : {
+            "code" : "ERP-01-005",
+            "message" : "Error, Request Time Out, Origin Response : "
+        }
+    }
+}
