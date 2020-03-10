@@ -35,6 +35,12 @@ func main() {
 	}()
 
 	//db.AutoMigrate(&migrations.User{}, &migrations.Token{}, &migrations.Role{})
+	//mailServe := mail.Build("purwanto.dev@gmail.com", "test_go_email", "asdhs shda shds dhdas")
+	// mailServe := mail.BuildWithHtml("purwanto.dev@gmail.com", "test_go_email")
+	// err = mailServe.Send()
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
 	e := echo.New()
 	routes.Endpoints(e, db)

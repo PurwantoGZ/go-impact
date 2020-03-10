@@ -37,6 +37,15 @@ func Load(driver string) (*DbConfig, error) {
 		Key:    os.Getenv("JWT_SECRET"),
 	}
 
+	mailPort, _ := strconv.Atoi(os.Getenv("MAIL_PORT"))
+	MailConf = &MailConfig{
+		Driver:   os.Getenv("MAIL_DRIVER"),
+		Host:     os.Getenv("MAIL_HOST"),
+		Port:     mailPort,
+		Username: os.Getenv("MAIL_USERNAME"),
+		Password: os.Getenv("MAIL_PASSWORD"),
+	}
+
 	if driver == "mysql" {
 		port, _ := strconv.Atoi(os.Getenv("DB_PORT"))
 

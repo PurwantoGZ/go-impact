@@ -9,6 +9,8 @@ import (
 	_accountHanlder "github.com/purwantogz/go-impact/domain/account/delivery/http"
 	_accountRepo "github.com/purwantogz/go-impact/domain/account/repository"
 	_accountUsecase "github.com/purwantogz/go-impact/domain/account/usecase"
+	_uploadHandler "github.com/purwantogz/go-impact/domain/img/delivery/http"
+	_uploadUseCase "github.com/purwantogz/go-impact/domain/img/usecase"
 	_userHanlder "github.com/purwantogz/go-impact/domain/user/delivery/http"
 	_userRepo "github.com/purwantogz/go-impact/domain/user/repository"
 	_userUsecase "github.com/purwantogz/go-impact/domain/user/usecase"
@@ -37,8 +39,14 @@ func Endpoints(e *echo.Echo, db *gorm.DB) {
 	g.Use(middleware.Logger())
 	g.Use(middleware.Recover())
 
-	//CORS
+	//CORS group v1
 	g.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
+	}))
+
+	//CORS
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
 		AllowMethods: []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
 	}))
@@ -54,5 +62,9 @@ func Endpoints(e *echo.Echo, db *gorm.DB) {
 	accountRepo := _accountRepo.Init(db)
 	accountUsecase := _accountUsecase.Init(accountRepo, timeoutContext)
 	_accountHanlder.NewAccountHandler(e, accountUsecase)
+
+	//Image Upload Handler & Usecase
+	uploadUsecase := _uploadUseCase.Init(timeoutContext)
+	_uploadHandler.NewImgHandler(e, uploadUsecase)
 
 }
