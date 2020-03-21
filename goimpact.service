@@ -1,0 +1,29 @@
+[Unit]
+Description=Echo service
+ConditionPathExists=/home/ubuntu/work/go-impact/server
+After=network.target
+
+[Service]
+Type=simple
+User=goimpact
+Group=goimpact
+LimitNOFILE=1024
+
+Restart=on-failure
+RestartSec=10
+startLimitIntervalSec=60
+
+WorkingDirectory=/home/ubuntu/work/go-impact
+ExecStart=/home/ubuntu/work/go-impact/server
+
+# make sure log directory exists and owned by syslog
+PermissionsStartOnly=true
+ExecStartPre=/bin/mkdir -p /var/log/goimpact
+ExecStartPre=/bin/chown syslog:adm /var/log/goimpact
+ExecStartPre=/bin/chmod 755 /var/log/goimpact
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=goimpact
+
+[Install]
+WantedBy=multi-user.target
